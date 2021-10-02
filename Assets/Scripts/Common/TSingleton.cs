@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +7,7 @@ public class TSingleton<T> : MonoBehaviour where T : TSingleton<T>
     protected static volatile T _uniqueInstance = null;
     protected static volatile GameObject _uniqueObject = null;
 
-    // »ó¼ÓÀ» ¹ŞÁö ¾ÊÀº »óÈ²¿¡¼­´Â ¾²Áö ¸øÇÏ°Ô ÇÏ±â À§ÇØ protected·Î »ı¼ºÀÚ¸¦ º¯°æ
+    // ìƒì†ì„ ë°›ì§€ ì•Šì€ ìƒí™©ì—ì„œëŠ” ì“°ì§€ ëª»í•˜ê²Œ í•˜ê¸° ìœ„í•´ protectedë¡œ ìƒì„±ìë¥¼ ë³€ê²½
     protected TSingleton()
     {
     }
@@ -18,10 +18,10 @@ public class TSingleton<T> : MonoBehaviour where T : TSingleton<T>
         {
             if (_uniqueInstance == null)
             {
-                // ¿©·¯ ¾²·¹µå¿¡¼­ µ¿½Ã »ı¼ºÀ» ¸·±â À§ÇØ lock Å°¿öµå¸¦ »ç¿ë. ¹®Á¦ÀÇ ¹ß»ıÀ» ÇØ¼Ò ÇÏ±â À§ÇÑ ¹æ¹ı
+                // ì—¬ëŸ¬ ì“°ë ˆë“œì—ì„œ ë™ì‹œ ìƒì„±ì„ ë§‰ê¸° ìœ„í•´ lock í‚¤ì›Œë“œë¥¼ ì‚¬ìš©. ë¬¸ì œì˜ ë°œìƒì„ í•´ì†Œ í•˜ê¸° ìœ„í•œ ë°©ë²•
                 lock (typeof(T))
                 {
-                    // _uniqueObject¸¸ nullÀÎ°æ¿ì´Â È®ÀÎÀ» ÇØºÁ¾ßÇÔ
+                    // _uniqueObjectë§Œ nullì¸ê²½ìš°ëŠ” í™•ì¸ì„ í•´ë´ì•¼í•¨
                     if (_uniqueInstance == null && _uniqueObject == null)
                     {
                         _uniqueObject = new GameObject(typeof(T).Name, typeof(T));
