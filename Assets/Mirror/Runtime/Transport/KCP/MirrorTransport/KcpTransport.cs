@@ -1,4 +1,4 @@
-//#if MIRROR <- commented out because MIRROR isn't defined on first import yet
+﻿//#if MIRROR <- commented out because MIRROR isn't defined on first import yet
 using System;
 using System.Linq;
 using System.Net;
@@ -16,11 +16,11 @@ namespace kcp2k
 
         // common
         [Header("Transport Configuration")]
-        public ushort Port = 7777;
+        public ushort Port = 7777;//-- 포트번호 입력
         [Tooltip("DualMode listens to IPv6 and IPv4 simultaneously. Disable if the platform only supports IPv4.")]
-        public bool DualMode = true;
+        public bool DualMode = true;//-- IPv6와 IPv4 동시 수신가능 여부 단(플랫폼별로 IPv4만 지원할 경우 False)
         [Tooltip("NoDelay is recommended to reduce latency. This also scales better without buffers getting full.")]
-        public bool NoDelay = true;
+        public bool NoDelay = true;//-- 대기시간 감소, 버퍼 감소
         [Tooltip("KCP internal update interval. 100ms is KCP default, but a lower interval is recommended to minimize latency and to scale to more networked entities.")]
         public uint Interval = 10;
         [Tooltip("KCP timeout in milliseconds. Note that KCP sends a ping automatically.")]
